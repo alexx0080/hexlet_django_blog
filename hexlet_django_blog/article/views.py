@@ -5,4 +5,4 @@ from django.http import HttpResponse
 
 # Создаем функцию для адреса .../article
 def index(request):
-    return HttpResponse('article')
+    return render(request, 'article\index.html', context={'name':'article'})
