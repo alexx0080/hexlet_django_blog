@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hexlet_django_blog',
+    # Регистрируем новое приложение
+    'hexlet_django_blog.article',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +57,7 @@ ROOT_URLCONF = 'hexlet_django_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # Добавляем папку с шаблонами
         'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {

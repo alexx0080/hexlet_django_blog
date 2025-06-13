@@ -16,11 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# Импортируем функцию include для соеденения с файлом urls.py другого приложения
+from django.urls import include
 # Импортируем views.py
 from hexlet_django_blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Добавляем маршрут к главной странице
+    # Добавляем маршрут к главной странице и странице о нас
     path('', views.index),
+    path('about/', views.about),
+    
+    # Добавляем маршрут в файлу urls.py приложения article
+    path('article/', include('hexlet_django_blog.article.urls')),
 ]
