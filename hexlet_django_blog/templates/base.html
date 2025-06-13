@@ -1,0 +1,29 @@
+<!-- Базовый шаблон, который будет наследоваться -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Document{%endblock%}</title>
+</head>
+<body>
+    <header>
+        {%block header_site%}
+        <h1>Здесь должна быть шапка сайта</h1>
+        {%endblock%}
+    </header>
+
+    <main>
+        {%block body_site%}
+        <h1>Здесь должно быть тело сайта</h1>
+        {%endblock%}
+    </main>
+
+    <footer>
+        {%block footer_site%}
+        <h1>Здесь должен быть футер сайта</h1>
+        {%endblock%}
+    </footer>
+</body>
+</html>

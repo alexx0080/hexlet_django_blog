@@ -1,14 +1,13 @@
 <!-- Страница о нас -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>О нас</h1>
-    <p>Пробуем Django</p>
-</body>
-</html>
+{%extends 'base.html'%}
+
+{%block title%}О нас{%endblock%}
+
+{%block header_site%}
+<h1>О нас</h1>
+{%endblock%}
+
+{%block body_site%}
+<h2>Пробуем Django на курсах Хекслет</h2>
+{%endblock%}
