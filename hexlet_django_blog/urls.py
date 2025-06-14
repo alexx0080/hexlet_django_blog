@@ -32,4 +32,7 @@ urlpatterns = [
     
     # Добавляем маршрут в файлу urls.py приложения article
     path('article/', include('hexlet_django_blog.article.urls')),
+
+    # Новый динамический url
+    path('number/<int:number>/', views.dinamyc_url),
 ]
