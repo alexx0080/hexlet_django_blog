@@ -20,12 +20,15 @@ from django.urls import path
 from django.urls import include
 # Импортируем views.py
 from hexlet_django_blog import views
+# Импортируем класс чтобы показать страницу
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Добавляем маршрут к главной странице и странице о нас
-    path('', views.index),
-    path('about/', views.about),
+    path('', views.HomePage.as_view()),
+    # Теперь мы отображаем страницу с помощью встроенного класса TemplateView и больше нет необходимости писать view функцию
+    path('about/', TemplateView.as_view(template_name = 'about.html')),
     
     # Добавляем маршрут в файлу urls.py приложения article
     path('article/', include('hexlet_django_blog.article.urls')),

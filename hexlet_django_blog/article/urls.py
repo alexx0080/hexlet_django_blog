@@ -6,6 +6,6 @@ from hexlet_django_blog.article import views
 
 
 urlpatterns = [
-    # Это адрес .../article
-    path('', views.index),
+    # Это адрес .../article теперь создает объект класса и вызывает функцию в нем
+    path('', views.ArticleView.as_view()),
 ]
