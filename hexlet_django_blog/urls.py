@@ -26,7 +26,7 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Добавляем маршрут к главной странице и странице о нас
-    path('', views.HomePage.as_view()),
+    path('', views.index),
     # Теперь мы отображаем страницу с помощью встроенного класса TemplateView и больше нет необходимости писать view функцию
     path('about/', TemplateView.as_view(template_name = 'about.html')),
     
