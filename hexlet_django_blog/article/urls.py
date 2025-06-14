@@ -10,4 +10,3 @@ urlpatterns = [
     path('', views.ArticleView.as_view()),
     path('<str:tags>/<int:article_id>/', views.article_id_and_tag, name='article')
 ]
-
