@@ -8,7 +8,7 @@ from django.urls import reverse, reverse_lazy
 # Создаем класс для адреса .../article
 class ArticleView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'article\index.html', context={'name':'article'})
+        return render(request, 'article/index.html', context={'name':'article'})
 
 
 # Функция для динамического url 

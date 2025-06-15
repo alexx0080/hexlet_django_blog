@@ -8,5 +8,6 @@ from hexlet_django_blog.article import views
 urlpatterns = [
     # Это адрес .../article 
     path('', views.ArticleView.as_view()),
-    path('<str:tags>/<int:article_id>/', views.article_id_and_tag, name='article')
+    # Динамический url
+    path('<str:tags>/<int:article_id>/', views.article_id_and_tag, name='article'),
 ]

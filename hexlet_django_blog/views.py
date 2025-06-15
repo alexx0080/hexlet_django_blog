@@ -27,8 +27,3 @@ def index(request):
 #     return render(request, 'about.html')
 
 
-# Тест для динамический url
-def dinamyc_url(request, number):
-    context = {'number':number}
-    return render(request, 'numbers.html', context=context)
-
