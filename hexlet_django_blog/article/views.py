@@ -2,13 +2,16 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from django.urls import reverse, reverse_lazy
+from hexlet_django_blog.article.models import Article
 
 # Create your views here.
 
 # Создаем класс для адреса .../article
 class ArticleView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'article/index.html', context={'name':'article'})
+        # Функция возвращает все объекты таблицы Article в article/index.html
+        all_articles = Article.objects.all()
+        return render(request, 'article/index.html', context={'articles':all_articles})
 
 
 # Функция для динамического url 
