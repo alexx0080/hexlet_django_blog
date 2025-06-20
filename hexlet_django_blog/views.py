@@ -19,7 +19,8 @@ from django.urls import reverse
 # Новая фукнция для главной страницы
 def index(request):
     # Перенаправляем на эту директорию
-    return redirect(reverse('article', kwargs={'article_id':42, 'tags':'python'}))
+    # return redirect(reverse('article', kwargs={'article_id':42, 'tags':'python'}))
+    return render(request, 'index.html')
 
 
 # Страница о нас но сейчас в ней нет необходимости, так как ее показывают через встроенный класс

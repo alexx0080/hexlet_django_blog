@@ -11,7 +11,8 @@
     <h1>Список статей</h1>
     <ol>
     {%for item in articles%}
-    <li style="font-size: 25px;">{{item.name}}</li>
+    <!-- Так передаем аргументы если наш url динамический, то есть просто пишем название аргумента как в маршруте и приравниваем его к какому то значению -->
+    <li style="font-size: 25px;"><a href="{%url 'definite_article' art_id=item.id%}">{{item.name}}</a></li>
     <p style="font-size: 19px;">{{item.body}}</p>
     {%endfor%}
     </ol>

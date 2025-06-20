@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import View
 from django.urls import reverse, reverse_lazy
@@ -24,3 +24,10 @@ def article_id_and_tag(request, article_id, tags):
         'path':reverse('article', kwargs={'article_id': 0, 'tags':'Base article'})
     }
     return render(request, 'article/id_and_tag.html', context=context)
+
+
+# Класс для показа конкретной статьи по ее id
+class DefiniteArticle(View):
+    def get(self, request, *args, **kwargs):
+        article = get_object_or_404(Article, id=kwargs['art_id'])
+        return render(request, 'article/definite_article.html', context={'article':article})
