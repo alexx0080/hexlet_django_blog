@@ -12,4 +12,6 @@ urlpatterns = [
     path('<str:tags>/<int:article_id>/', views.article_id_and_tag, name='article'),
     # Добавляем маршрут показа статьи по ее номеру
     path('<int:art_id>/', views.DefiniteArticle.as_view(), name='definite_article'),
+    # Добавляем маршрут для создания статьи с помощью формы
+    path('create/', views.ArticleFormCreateView.as_view(), name='create_article'),
 ]

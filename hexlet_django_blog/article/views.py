@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import View
 from django.urls import reverse, reverse_lazy
 from hexlet_django_blog.article.models import Article
+from hexlet_django_blog.article.forms import ArticleForm
 
 # Create your views here.
 
@@ -31,3 +32,18 @@ class DefiniteArticle(View):
     def get(self, request, *args, **kwargs):
         article = get_object_or_404(Article, id=kwargs['art_id'])
         return render(request, 'article/definite_article.html', context={'article':article})
+    
+
+# Класс для работы с формой для создания статьи
+class ArticleFormCreateView(View):
+    def get(self, request, *args, **kwargs):
+        form = ArticleForm()
+        return render(request, 'article/create_article.html', context={'form':form})
+    
+    def post(self, request, *args, **kwargs):
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('all_articles')
+        else:
+            return render(request, 'article/create_article.html', context={'form':form})
