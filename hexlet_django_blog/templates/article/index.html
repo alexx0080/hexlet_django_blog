@@ -12,8 +12,10 @@
     <ol>
     {%for item in articles%}
     <!-- Так передаем аргументы если наш url динамический, то есть просто пишем название аргумента как в маршруте и приравниваем его к какому то значению -->
-    <li style="font-size: 25px;"><a href="{%url 'definite_article' art_id=item.id%}">{{item.name}}</a></li>
+    <li style="font-size: 25px; padding-top: 60px;"><a href="{%url 'definite_article' art_id=item.id%}">{{item.name}}</a></li>
     <p style="font-size: 19px;">{{item.body}}</p>
+    <button style="font-size: 20px; background-color: blue; width: 180px; text-align: center; height: 30px; border-radius: 10px;"><a href="{%url 'edit_article' art_id=item.id%}">Изменить статью</a></button>
+    
     {%endfor%}
     </ol>
 </body>
