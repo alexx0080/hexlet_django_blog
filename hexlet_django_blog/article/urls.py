@@ -14,6 +14,9 @@ urlpatterns = [
     # Добавляем динамический маршрут для изменения статьи в базе данных с помощью формы
     path('<int:art_id>/edit/', views.ArticleFormEdit.as_view(), name='edit_article'),
 
+    # Добавляем динамический маршрут для удаления статьи в базе данных
+    path('<int:art_id>/delete/', views.ArticleFormDelete.as_view(), name='delete_article'),
+
     # Добавляем маршрут показа статьи по ее номеру
     path('<int:art_id>/', views.DefiniteArticle.as_view(), name='definite_article'),
     # Добавляем маршрут для создания статьи с помощью формы

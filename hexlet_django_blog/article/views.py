@@ -4,6 +4,8 @@ from django.views import View
 from django.urls import reverse, reverse_lazy
 from hexlet_django_blog.article.models import Article
 from hexlet_django_blog.article.forms import ArticleForm
+# Импортируем флеш сообщения
+from django.contrib import messages
 
 # Create your views here.
 
@@ -69,3 +71,22 @@ class ArticleFormEdit(View):
             return redirect('definite_article', art_id=article_id) 
         else:
             return render(request, 'article/edit_article.html', context={'form':form, 'article_id':article_id})
+        
+
+# Класс для удаления статьи
+class ArticleFormDelete(View):
+    # Здесь мы не создаем и не передаем форму в шаблон, так как там единственное что нам нужно это кнопка удалить
+    # По нажатию кнопки выполнятеся этот код
+    def post(self, request, *args, **kwargs):
+        article_id = kwargs.get('art_id')
+        article = Article.objects.get(id=article_id)
+        if article:
+            article.delete()
+            # Добавим вывод флеш сообщения в index.html (так как происходит редирект на него)
+            messages.success(request, 'Статья успешно удалена')
+        return redirect('all_articles')
+    
+    # Этот код выполняется при переходе на заданный адрес. Он возвращает html страницу с кнопкой удалить, и передает в контекст id статьи которую нужно удалить
+    def get(self, request, *args, **kwargs):
+        article_id = kwargs.get('art_id')
+        return render(request, 'article/delete_article.html', context={'article_id':article_id})
